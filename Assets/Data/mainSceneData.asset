@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6e784ad2416e743abb09bcd5914ce7, type: 3}
   m_Name: mainSceneData
   m_EditorClassIdentifier: 
-  playerPosition: {x: 2.645172, y: 1.0800005, z: -15.2361765}
-  playerHealth: 60
+  playerPosition: {x: 0, y: 0, z: 0}
+  playerRotation: {x: 0, y: 0, z: 0, w: 0}
+  playerHealth: 0

@@ -107,8 +107,13 @@ public class ControlPanelController : MonoBehaviour
 
     public void OnLoadButtonPressed()
     {
+        // Deserialize Data from PlayerPref
+        var playerPrefToSceneData = PlayerPrefs.GetString("playerData");
+        JsonUtility.FromJsonOverwrite(playerPrefToSceneData, sceneData);
+
         player.controller.enabled = false;
         player.transform.position = sceneData.playerPosition;
+        player.transform.localRotation = sceneData.playerRotation;
         player.controller.enabled = true;
 
         player.health = sceneData.playerHealth;
@@ -118,6 +123,10 @@ public class ControlPanelController : MonoBehaviour
     public void OnSaveButtonPressed()
     {
         sceneData.playerPosition = player.transform.position;
+        sceneData.playerRotation = player.transform.localRotation;
         sceneData.playerHealth = player.health;
+
+        // Serialize Data to PlayerPref
+        PlayerPrefs.SetString("playerData", JsonUtility.ToJson(sceneData));
     }
 }
